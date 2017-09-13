@@ -1,0 +1,7 @@
+<div>
+  {{#each report.fields as |selectFieldChoice|}}
+  <h4>Choose field from list</h4>
+  {{selectFieldChoice}}
+  <h3><button {{action "removeField" selectFieldChoice}}>Remove field</button></h3>
+  {{/each}}
+</div>

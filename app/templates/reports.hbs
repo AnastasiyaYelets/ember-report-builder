@@ -1,0 +1,50 @@
+<div class="container">
+  <div class='left-part'>
+    <h2>Report builder</h2>
+    {{input-name report=newReport}}
+
+    {{#unless isEntityShow}}
+      {{choose-entity report=newReport model=model}}
+    {{/unless}}
+
+    {{#if isEntityShow}}
+      {{choosen-entity report=newReport model=model}}
+    {{/if}}
+
+    {{#if isFieldsShow}}
+      {{list-of-fields report=newReport }}
+    {{/if}}
+
+    {{#if isNewFieldShow}}
+      {{new-field
+        remainingFields=remainingFields
+        action=(action 'selectField')
+      }}
+    {{/if}}
+
+    {{#if isAddButtonShow}}
+
+    {{button-template
+         action=(action 'addFieldButtonClick')
+         text='Add field'
+    }}
+    {{/if}}
+
+    {{button-template
+         action=(action 'saveReport')
+         text='Save'
+    }}
+
+  </div>
+  <div class='right-part'>
+
+    {{#if isReportShow}}
+      <h4>Reports</h4>
+      {{#each reports as |report|}}
+        <div> report: {{report.name}} </div>
+        <div> type: {{report.type}} </div>
+        <div> fields: {{ report.fields}} </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</div>

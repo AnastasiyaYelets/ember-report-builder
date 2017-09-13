@@ -1,0 +1,9 @@
+<div>
+  <h4>Choose field from list</h4>
+  <select onchange={{action action value="target.value"}}>
+    <option disabled selected> choose field </option>
+    {{#each remainingFields as |fieldChoice|}}
+    <option value={{fieldChoice}}>{{fieldChoice}}</option>
+    {{/each}}
+  </select>
+</div>

@@ -1,0 +1,9 @@
+<div>
+  <h4>Choose entity from list</h4>
+  <select onchange={{action "selectEntity" value="target.value" }}>
+    <option disabled selected> choose entity </option>
+    {{#each model as |entityChoice|}}
+    <option value={{entityChoice.name}} selected={{eq report.type entityChoice.name}}>{{entityChoice.name}}</option>
+    {{/each}}
+  </select>
+</div>
